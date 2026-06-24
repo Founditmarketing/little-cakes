@@ -1,26 +1,115 @@
 @import "tailwindcss";
 
+/* ----------------------------------------------------------------------------
+   Little Cakes With Big Attitude - design tokens
+   Direction: Dark Cinematic. One locked accent (brand teal). Food = the color.
+   ---------------------------------------------------------------------------- */
+@theme {
+  /* Canvas + surfaces (warm near-black, never pure #000) */
+  --color-ink: #0f0e10;
+  --color-ink-2: #161416;
+  --color-ink-3: #211e22;
+  --color-line: #2a262c;
+
+  /* Type */
+  --color-cream: #f4f1ea;
+  --color-muted: #b8b1a7;
+  --color-faint: #847e76;
+
+  /* The one locked accent: brand teal (from the cup sleeve) */
+  --color-teal: #1cbcca;
+  --color-teal-bright: #46dceb;
+  --color-teal-ink: #06343a;
+
+  /* Fonts */
+  --font-display: var(--font-bricolage), ui-sans-serif, system-ui, sans-serif;
+  --font-sans: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-geist-mono), ui-monospace, monospace;
+
+  /* One radius scale: surfaces soft, buttons pill (documented rule) */
+  --radius-card: 1.5rem;
+
+  /* Easing */
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  color-scheme: dark;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  background-color: var(--color-ink);
+  -webkit-text-size-adjust: 100%;
+  scroll-padding-top: 6rem;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background-color: var(--color-ink);
+  color: var(--color-cream);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+::selection {
+  background: var(--color-teal);
+  color: var(--color-ink);
+}
+
+/* Display type: tight, confident, the "big attitude" voice */
+.font-display {
+  font-feature-settings: "ss01";
+  letter-spacing: -0.02em;
+}
+
+/* Fixed film grain. pointer-events-none, never on a scrolling container. */
+.film-grain {
+  position: fixed;
+  inset: 0;
+  z-index: 60;
+  pointer-events: none;
+  opacity: 0.045;
+  mix-blend-mode: overlay;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+/* Thin uppercase label (rationed - see eyebrow discipline) */
+.kicker {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--color-teal);
+}
+
+/* Kinetic flavor marquee (the one marquee on the page) */
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+.marquee-track {
+  animation: marquee 38s linear infinite;
+}
+.marquee-track:hover {
+  animation-play-state: paused;
+}
+.text-outline {
+  color: transparent;
+  -webkit-text-stroke: 1.25px var(--color-cream);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
 }
