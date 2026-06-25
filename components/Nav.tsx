@@ -67,7 +67,7 @@ export function Nav() {
       >
         <nav className="mx-auto flex h-[72px] max-w-[1400px] items-center justify-between px-5 sm:px-8">
           <a href="#top" aria-label="Little Cakes With Big Attitude home">
-            <Wordmark />
+            <Wordmark imageClassName="translate-y-[72px]" />
           </a>
 
           <div className="hidden items-center gap-9 lg:flex">
@@ -118,7 +118,7 @@ export function Nav() {
             className="fixed inset-0 z-[70] flex flex-col bg-ink px-5 pt-5 lg:hidden"
           >
             <div className="flex h-[72px] items-center justify-between">
-              <Wordmark />
+              <Wordmark imageClassName="translate-y-[72px]" />
               <button
                 ref={closeRef}
                 type="button"

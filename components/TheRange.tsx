@@ -31,7 +31,7 @@ export function TheRange() {
             The whole case.
           </h2>
           <p className="mt-5 text-lg text-muted">
-            Seven kinds of trouble, made fresh daily.
+            Six kinds of trouble, made fresh daily.
           </p>
         </div>
       </Reveal>

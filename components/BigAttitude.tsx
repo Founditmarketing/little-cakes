@@ -48,7 +48,7 @@ export function BigAttitude() {
           </h2>
           <p className="mt-8 max-w-xl text-lg leading-relaxed text-muted">
             Every cupcake gets a hand-piped swirl. Every cookie gets a little too
-            much chocolate. Every order gets our whole personality, and a little
+            much personality. Every order gets our whole attitude, and a little
             extra frosting.
           </p>
         </Reveal>

@@ -20,7 +20,7 @@ export function Footer() {
           <div>
             <Wordmark />
             <p className="mt-5 max-w-xs text-sm leading-relaxed text-muted">
-              Small cakes, loud flavor. Made from scratch in Alexandria and
+              Little Cakes, Big Attitude. Made from scratch in Alexandria and
               Pineville, Louisiana.
             </p>
             <div className="mt-6 flex gap-3">

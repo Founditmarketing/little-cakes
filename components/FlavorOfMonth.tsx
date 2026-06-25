@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { Reveal } from "./motion-primitives";
-import { FLAVOR_OF_MONTH as f } from "@/lib/site";
+import { FLAVOR_OF_MONTH as f, NEXT_FLAVOR } from "@/lib/site";
 
 export function FlavorOfMonth() {
   return (
@@ -21,7 +21,7 @@ export function FlavorOfMonth() {
 
         <Reveal delay={0.1}>
           <div>
-            <p className="kicker">{f.month}</p>
+            <p className="kicker">Flavor of the Month</p>
             <h2 className="mt-4 font-display text-[clamp(2.75rem,6vw,5rem)] font-extrabold leading-[0.95] tracking-[-0.03em]">
               {f.name}
             </h2>
@@ -37,6 +37,9 @@ export function FlavorOfMonth() {
               </Link>
               <span className="text-sm text-faint">{f.note}</span>
             </div>
+            <p className="mt-6 text-sm text-faint">
+              Up next in {NEXT_FLAVOR.month}: {NEXT_FLAVOR.name}
+            </p>
           </div>
         </Reveal>
       </div>

@@ -29,7 +29,7 @@ export function Catering() {
               </h2>
               <p className="mt-5 max-w-md text-lg leading-relaxed text-muted">
                 Office mornings, birthdays, weddings, just-because Tuesdays. We
-                box it, platter it, and deliver it. Or take over our party room
+                box it, platter it, and deliver it. Or take over our dining room
                 and let us handle the rest.
               </p>
               <div className="mt-8 flex flex-wrap gap-3">
@@ -46,7 +46,7 @@ export function Catering() {
                   href="/facility-rental"
                   className="inline-flex items-center rounded-full border border-line px-6 py-3 text-[15px] font-semibold text-cream transition-colors hover:border-teal hover:text-teal"
                 >
-                  Book the party room
+                  Book a facility rental
                 </Link>
               </div>
             </div>

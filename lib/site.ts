@@ -66,13 +66,19 @@ export const NAV = [
 
 /* The recurring "cover story". Swap monthly. Image must be a clean (text-free) shot. */
 export const FLAVOR_OF_MONTH = {
-  name: "Signature Swirl",
+  name: "Key Lime",
   month: "June",
-  image: "/photos/cupcake-teal-macro.jpg",
-  alt: "Chocolate cupcake topped with a tall swirl of the signature teal buttercream and chocolate sprinkles",
+  image: "/photos/promo-key-lime.jpg",
+  alt: "Key lime cupcake with key lime buttercream and crushed graham cracker topping",
   blurb:
-    "Chocolate cake under a tall swirl of that famous teal buttercream, finished with chocolate sprinkles. The one you spot from across the room.",
+    "Key lime cake layered with key lime buttercream, finished with a dusting of crushed graham cracker. Bright, tart, and impossible to put down.",
   note: "New flavor drops the first of every month.",
+};
+
+export const NEXT_FLAVOR = {
+  name: "Strawberry",
+  month: "July",
+  blurb: "Fresh strawberry cake with strawberry cream cheese frosting.",
 };
 
 export type Category = {
@@ -116,7 +122,7 @@ export const CATEGORIES: Category[] = [
   {
     name: "Breakfast",
     href: "/breakfast-items",
-    blurb: "Croissants, muffins, hand pies, kolaches.",
+    blurb: "Pop-Tarts, muffins, scones, and cinnamon rolls.",
     image: "/photos/breakfast-pastries.jpg",
     alt: "A sheet pan of frosted hand pies, muffins and a cinnamon roll",
     position: "object-[40%_30%]",
@@ -132,7 +138,7 @@ export const CATEGORIES: Category[] = [
   {
     name: "Paleo & Keto",
     href: "/paleoketo-treats",
-    blurb: "4g net carbs, zero compromise.",
+    blurb: "Keto, diabetic friendly, and gluten-free with low net carbs per serving.",
     image: "/photos/keto-cheesecake.jpg",
     alt: "Keto and diabetic friendly gluten free cheesecakes with a caramel cupcake, low carb dessert Alexandria LA",
     position: "object-[35%_50%]",
@@ -157,16 +163,11 @@ export const COFFEE_DRINKS = [
 
 /* Marquee of flavors - text only, used as a kinetic strip. */
 export const FLAVOR_WORDS = [
-  "Red Velvet",
-  "Key Lime",
+  "Southern Pecan",
+  "Wedding Cake",
   "Salted Caramel",
-  "Carrot Cake",
-  "Cookies & Cream",
-  "Lemon Blueberry",
-  "Chocolate Ganache",
-  "Strawberry",
-  "Birthday Confetti",
-  "Almond Croissant",
+  "Triple Chocolate",
+  "Red Velvet",
 ];
 
 /* Real customer testimonials, from the live site's "Share the Love" page. */

@@ -62,7 +62,7 @@ export const MENU_CATEGORIES: MenuCategory[] = [
       },
       {
         heading: "Flavor of the month",
-        note: "One for every month, June through May",
+        note: "One for every month",
         items: [
           { name: "Key Lime", description: "June. Key lime cake, key lime butter cream, and crushed graham cracker." },
           { name: "Strawberry", description: "July. Fresh strawberry cake with strawberry cream cheese frosting." },
@@ -85,8 +85,8 @@ export const MENU_CATEGORIES: MenuCategory[] = [
     name: "Cakes",
     intro:
       "Any cupcake flavor we make, scaled up. Six or eight inch, baked fresh to order. Please allow 48 hours and call for details.",
-    image: "/photos/chocolate-caramel-cakes.jpg",
-    imageAlt: "Chocolate cakes with caramel drizzle on a wood board",
+    image: "/photos/chocolate cake.jpeg",
+    imageAlt: "Chocolate peanut butter drip cake on a white cake stand",
     pricingNote: "Custom cakes are made to order in any flavor we offer as a cupcake. Call 318.445.5226 for pricing and details. Please allow 48 hours.",
     groups: [
       {

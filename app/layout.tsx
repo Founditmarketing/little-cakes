@@ -31,10 +31,10 @@ export const metadata: Metadata = {
     template: "%s | Little Cakes With Big Attitude",
   },
   description:
-    "Small cakes, loud flavor. Scratch-made cupcakes, cakes, cookies and coffee in Alexandria and Pineville, Louisiana. Order ahead, cater an event, or just come get something sweet.",
+    "Little Cakes, Big Attitude. Scratch-made cupcakes, cakes, cookies and coffee in Alexandria and Pineville, Louisiana. Order ahead, cater an event, or just come get something sweet.",
   openGraph: {
     title: "Little Cakes With Big Attitude",
-    description: "Small cakes, loud flavor. Alexandria & Pineville, Louisiana.",
+    description: "Little Cakes, Big Attitude. Alexandria & Pineville, Louisiana.",
     type: "website",
     locale: "en_US",
     images: ["/photos/cupcakes-array.jpg"],
@@ -42,7 +42,7 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "Little Cakes With Big Attitude",
-    description: "Small cakes, loud flavor. Alexandria & Pineville, Louisiana.",
+    description: "Little Cakes, Big Attitude. Alexandria & Pineville, Louisiana.",
     images: ["/photos/cupcakes-array.jpg"],
   },
 };
@@ -69,6 +69,20 @@ export default function RootLayout({
           Skip to content
         </a>
         <div className="film-grain" aria-hidden="true" />
+        {/* Single SVG filter definition shared by all Wordmark instances */}
+        <svg width="0" height="0" aria-hidden="true" style={{ position: "absolute" }}>
+          <defs>
+            <filter id="lc-logo-filter" colorInterpolationFilters="sRGB">
+              <feColorMatrix
+                type="matrix"
+                values="0 0 0 0 0.125
+                        0 0 0 0 0.741
+                        0 0 0 0 0.800
+                       -1 -1 -1 0 3"
+              />
+            </filter>
+          </defs>
+        </svg>
         <Nav />
         <div id="main-content">{children}</div>
         <Footer />
