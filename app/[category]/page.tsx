@@ -102,27 +102,42 @@ export default async function CategoryPage({
                 ) : (
                   <h2 className="sr-only">{cat.name}</h2>
                 )}
-                <div className="grid gap-x-12 gap-y-7 sm:grid-cols-2">
-                  {group.items.map((item) => (
-                    <div key={item.name}>
-                      <div className="flex items-baseline justify-between gap-4">
-                        <h3 className="font-display text-lg font-bold tracking-tight text-cream">
-                          {item.name}
-                        </h3>
-                        {item.price && (
-                          <span className="shrink-0 font-mono text-sm text-teal">
-                            {item.price}
-                          </span>
-                        )}
-                      </div>
-                      {item.description && (
-                        <p className="mt-1.5 max-w-prose text-sm leading-relaxed text-muted">
-                          {item.description}
-                        </p>
-                      )}
+                {(() => {
+                  const hasCurrent = group.items.some((i) => i.current);
+                  return (
+                    <div className="grid gap-x-12 gap-y-7 sm:grid-cols-2">
+                      {group.items.map((item) => (
+                        <div
+                          key={item.name}
+                          className={`transition-opacity duration-300 ${
+                            hasCurrent && !item.current ? "opacity-35" : ""
+                          }`}
+                        >
+                          <div className="flex items-baseline justify-between gap-4">
+                            <h3 className="font-display text-lg font-bold tracking-tight text-cream">
+                              {item.name}
+                              {item.current && (
+                                <span className="ml-2 align-middle rounded-full bg-teal px-2 py-0.5 font-sans text-[10px] font-semibold uppercase tracking-wider text-teal-ink">
+                                  This week
+                                </span>
+                              )}
+                            </h3>
+                            {item.price && (
+                              <span className="shrink-0 font-mono text-sm text-teal">
+                                {item.price}
+                              </span>
+                            )}
+                          </div>
+                          {item.description && (
+                            <p className="mt-1.5 max-w-prose text-sm leading-relaxed text-muted">
+                              {item.description}
+                            </p>
+                          )}
+                        </div>
+                      ))}
                     </div>
-                  ))}
-                </div>
+                  );
+                })()}
               </div>
             </Reveal>
           ))}

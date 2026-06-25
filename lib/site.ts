@@ -61,7 +61,7 @@ export const NAV = [
   { label: "Coffee", href: "/coffee" },
   { label: "Locations", href: "/#locations" },
   { label: "Catering", href: "/#catering" },
-  { label: "Gifts", href: "/#gifts" },
+  { label: "Gift Card", href: "/#gifts" },
 ];
 
 /* The recurring "cover story". Swap monthly. Image must be a clean (text-free) shot. */
@@ -155,10 +155,9 @@ export const COFFEE_DRINKS = [
   "Iced Matcha",
   "Matcha Refresher",
   "Frozen Coffee",
-  "Chai Latte",
+  "Iced Chai Latte",
   "Daily Brew",
   "Frozen Hot Chocolate",
-  "Cupcake Shake",
 ];
 
 /* Marquee of flavors - text only, used as a kinetic strip. */

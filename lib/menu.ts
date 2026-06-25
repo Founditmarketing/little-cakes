@@ -4,7 +4,7 @@
    other) so existing SEO/equity carries over. Coffee lives on its own /coffee page.
    ---------------------------------------------------------------------------- */
 
-export type MenuItem = { name: string; description?: string; price?: string };
+export type MenuItem = { name: string; description?: string; price?: string; current?: boolean };
 export type MenuGroup = { heading?: string; note?: string; items: MenuItem[] };
 
 export type MenuCategory = {
@@ -26,7 +26,7 @@ export const MENU_CATEGORIES: MenuCategory[] = [
     image: "/photos/cupcakes-array.jpg",
     imageAlt: "An assortment of Little Cakes cupcakes on dark stone",
     pricingNote:
-      "Regular $3.30 each, $36.30 a dozen. Small (about three bites) $24.20 a dozen, by special order with a two-dozen minimum. Baked in a kitchen that handles nuts and dairy. For custom orders call 318.445.5226.",
+      "Single $3.45 · Four-pack $13.65 · Half-dozen $20.50 · Dozen $37.55. Small (about three bites) by special order with a two-dozen minimum. Baked in a kitchen that handles nuts and dairy. For custom orders call 318.445.5226.",
     groups: [
       {
         heading: "Daily flavors",
@@ -49,7 +49,7 @@ export const MENU_CATEGORIES: MenuCategory[] = [
         heading: "Flavor of the week",
         note: "On a rotating weekly schedule",
         items: [
-          { name: "Cookies & Cream", description: "Vanilla cake with Oreo crumbles, butter cream frosting, and cookie pieces." },
+          { name: "Cookies & Cream", description: "Vanilla cake with Oreo crumbles, butter cream frosting, and cookie pieces.", current: true },
           { name: "Raspberry", description: "Raspberry vanilla swirl cake, cream cheese frosting, and sugar crystals." },
           { name: "Chocolate Chip", description: "Vanilla and chocolate marbled cake, cream frosting, and chocolate chips." },
           { name: "Pralines 'n Cream", description: "Vanilla cake with pralines folded in, cream cheese frosting, and a praline piece." },
@@ -64,6 +64,11 @@ export const MENU_CATEGORIES: MenuCategory[] = [
         heading: "Flavor of the month",
         note: "One for every month",
         items: [
+          { name: "Snickers", description: "January. Chocolate cake, cream cheese frosting, peanuts, and caramel drizzle." },
+          { name: "Petit Gateaux", description: "February. Vanilla cake swirled with cinnamon and pecans, cream cheese frosting, and Mardi Gras sugars." },
+          { name: "Irish Cream", description: "March. Chocolate coffee cake with Baileys Irish Cream frosting." },
+          { name: "Carrot Cake", description: "April. Cinnamon spice cake with carrots, raisins, and walnuts, with cream cheese frosting." },
+          { name: "Blueberry Wedding Cake", description: "May. White almond cake with blueberries folded in, topped with butter cream." },
           { name: "Key Lime", description: "June. Key lime cake, key lime butter cream, and crushed graham cracker." },
           { name: "Strawberry", description: "July. Fresh strawberry cake with strawberry cream cheese frosting." },
           { name: "Caramel Butterscotch", description: "August. Brown sugar cake, caramel frosting, butterscotch drizzle, and a pinch of sea salt." },
@@ -71,11 +76,6 @@ export const MENU_CATEGORIES: MenuCategory[] = [
           { name: "S'Mores", description: "October. Chocolate cupcake, marshmallow frosting, chocolate sauce, and graham crumbles." },
           { name: "Pumpkin", description: "November. Pumpkin spice cake, cream cheese frosting, dusted with cinnamon." },
           { name: "Chocolate Mint", description: "December. Chocolate cake, mint buttercream, and red and green sprinkles." },
-          { name: "Snickers", description: "January. Chocolate cake, cream cheese frosting, peanuts, and caramel drizzle." },
-          { name: "Petit Gateaux", description: "February. Vanilla cake swirled with cinnamon and pecans, cream cheese frosting, and Mardi Gras sugars." },
-          { name: "Irish Cream", description: "March. Chocolate coffee cake with Baileys Irish Cream frosting." },
-          { name: "Carrot Cake", description: "April. Cinnamon spice cake with carrots, raisins, and walnuts, with cream cheese frosting." },
-          { name: "Blueberry Wedding Cake", description: "May. White almond cake with blueberries folded in, topped with butter cream." },
         ],
       },
     ],
@@ -112,6 +112,7 @@ export const MENU_CATEGORIES: MenuCategory[] = [
         items: [
           { name: "Chocolate Chip" },
           { name: "Coconut Pecan" },
+          { name: "Lemon" },
           { name: "M&M" },
           { name: "Oatmeal Raisin" },
           { name: "Sugar" },
@@ -123,7 +124,6 @@ export const MENU_CATEGORIES: MenuCategory[] = [
         heading: "Sandwiches",
         items: [
           { name: "Cookie Sandwich", description: "Frosting of your choice between two cookies of your choice.", price: "$3.03" },
-          { name: "Cookie Ice Cream Sandwich", description: "Ice cream of your choice between two cookies of your choice.", price: "$3.20" },
         ],
       },
     ],
@@ -138,12 +138,10 @@ export const MENU_CATEGORIES: MenuCategory[] = [
       {
         items: [
           { name: "Sweet Pop-Tarts", description: "Apple, Blueberry, Chocolate, King Cake, or Strawberry.", price: "$3.30" },
+          { name: "Savory Pop-Tart", price: "$3.30" },
           { name: "Muffins", description: "Banana Nut, Blueberry, or Glorious Morning.", price: "$2.75" },
           { name: "Cinnamon Rolls", price: "$3.85" },
-          { name: "Scones", description: "Blueberry, or Lemon with cream cheese.", price: "$3.00" },
-          { name: "Savory Breakfast Sandwich", description: "Bacon, egg, and cheese on a croissant.", price: "$6.95" },
-          { name: "Berry Yogurt Parfait", description: "Vanilla Greek yogurt, fresh berries, house-made granola, and a drizzle of honey. Pineville location only.", price: "$4.75" },
-          { name: "Almond Croissant", description: "Croissant filled with almond cream, topped with sliced almonds and powdered sugar.", price: "$4.50" },
+          { name: "Blueberry Lemon with Cream Cheese", description: "A blueberry lemon scone with cream cheese.", price: "$3.00" },
         ],
       },
     ],
@@ -151,15 +149,14 @@ export const MENU_CATEGORIES: MenuCategory[] = [
   {
     slug: "ice-creams",
     name: "Ice Cream",
-    intro: "We proudly serve Blue Bell — by the scoop, a la mode, or blended into a Cupcake Shake.",
-    image: "/photos/casual-cake-slice-fork.jpg", // TODO: real ice-cream photo from owner
-    imageAlt: "A plated slice of cake with a fork at Little Cakes With Big Attitude in Central Louisiana",
+    intro: "We proudly serve Blue Bell — by the scoop.",
+    image: "/photos/ice cream.jpg",
+    imageAlt: "Ice cream at Little Cakes With Big Attitude in Central Louisiana",
     groups: [
       {
         items: [
-          { name: "Cupcake a la Mode", description: "A cupcake and a scoop of ice cream.", price: "$4.40" },
-          { name: "Ice Cream Cookie Sandwich", description: "Ice cream of your choice between two cookies.", price: "$3.52" },
-          { name: "Ice Cream by the Scoop", description: "One scoop $1.35, two $2.75, three $5.25.", price: "from $1.35" },
+          { name: "One Scoop", price: "$1.35" },
+          { name: "Two Scoop", price: "$2.75" },
         ],
       },
     ],
@@ -196,13 +193,14 @@ export const MENU_CATEGORIES: MenuCategory[] = [
     slug: "other",
     name: "Other",
     intro: "Ask about our sampler platters, breakfast platters, and gift box options.",
-    image: "/photos/chocolate-cupcake.jpg",
-    imageAlt: "Chocolate treats at Little Cakes With Big Attitude",
+    image: "/photos/brownies.jpg",
+    imageAlt: "Turtle brownie and sea salt caramel brownie at Little Cakes With Big Attitude",
     groups: [
       {
         items: [
-          { name: "Brownies", description: "Turtle sea salt caramel.", price: "$3.03" },
-          { name: "Cakeballs", price: "$1.38 each, $16.50 a dozen" },
+          { name: "Turtle Brownie", price: "$3.03" },
+          { name: "Sea Salt Caramel Brownie", price: "$3.03" },
+          { name: "Brownie Bites", description: "Two-dozen minimum.", price: "$3.03" },
           { name: "Brownie a la Mode", description: "A brownie with a scoop of ice cream.", price: "$4.13" },
           { name: "Gift Cards", description: "Available in any amount.", price: "Any amount" },
         ],

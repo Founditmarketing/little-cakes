@@ -129,8 +129,7 @@ export function Hero() {
             variants={item}
             className="mt-5 max-w-md text-base leading-relaxed text-muted sm:mt-7 sm:text-lg"
           >
-            Scratch-made cupcakes, cakes and cookies, plus a real coffee shop.
-            Two shops in Alexandria and Pineville.
+            Scratch-made cupcakes, cakes and cookies, plus a real coffee shop in Alexandria and Pineville, Louisiana.
           </motion.p>
 
           <motion.div

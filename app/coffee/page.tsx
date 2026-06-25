@@ -157,6 +157,44 @@ export default function CoffeePage() {
         </Reveal>
       </section>
 
+      {/* Bottled drinks */}
+      <section className="border-t border-line bg-ink-2">
+        <div className="mx-auto max-w-[1400px] px-5 py-24 sm:px-8 md:py-28">
+          <Reveal>
+            <div className="max-w-2xl">
+              <span className="rounded-full bg-teal px-3 py-1 text-xs font-bold uppercase tracking-wide text-teal-ink">
+                New
+              </span>
+              <h2 className="mt-4 font-display text-[clamp(2.25rem,5.5vw,4rem)] font-extrabold leading-[0.97] tracking-[-0.03em]">
+                Bottled drinks, ready to go.
+              </h2>
+              <p className="mt-5 max-w-md text-lg leading-relaxed text-muted">
+                Same flavors you love, sealed and ready when you are. Grab one on your way out — or stock up.
+              </p>
+            </div>
+          </Reveal>
+          <Reveal delay={0.1}>
+            <ul className="mt-10 grid grid-cols-1 gap-3 sm:grid-cols-3">
+              {[
+                { name: "Bottled Latte", description: "Our house iced latte, sealed fresh." },
+                { name: "Bottled Iced Chai", description: "Spiced chai, ready to drink." },
+                { name: "Bottled Matcha", description: "Smooth matcha, bottled to go." },
+              ].map((item) => (
+                <li
+                  key={item.name}
+                  className="rounded-2xl border border-teal/30 bg-ink px-6 py-6"
+                >
+                  <p className="font-display text-xl font-bold tracking-tight text-cream">
+                    {item.name}
+                  </p>
+                  <p className="mt-2 text-sm leading-relaxed text-muted">{item.description}</p>
+                </li>
+              ))}
+            </ul>
+          </Reveal>
+        </div>
+      </section>
+
       {/* Coffee and cake */}
       <section className="border-t border-line">
         <div className="mx-auto max-w-[1400px] px-5 py-24 sm:px-8 md:py-28">
