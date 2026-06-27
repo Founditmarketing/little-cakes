@@ -4,7 +4,7 @@
    other) so existing SEO/equity carries over. Coffee lives on its own /coffee page.
    ---------------------------------------------------------------------------- */
 
-export type MenuItem = { name: string; description?: string; price?: string; current?: boolean };
+export type MenuItem = { name: string; description?: string; price?: string; current?: boolean; image?: string };
 export type MenuGroup = { heading?: string; note?: string; items: MenuItem[] };
 
 export type MenuCategory = {
@@ -32,50 +32,50 @@ export const MENU_CATEGORIES: MenuCategory[] = [
         heading: "Daily flavors",
         note: "Available every day",
         items: [
-          { name: "Southern Pecan", description: "Butter pecan cake with coconut, cream cheese frosting, and a pecan half." },
-          { name: "Red Velvet", description: "Southern chocolate cake, cream cheese frosting, and red velvet crumbles." },
-          { name: "Wedding Cake", description: "White almond cake, butter cream frosting, and crystal sprinkles." },
-          { name: "Vanilla Sea Salt Caramel", description: "Vanilla cake, cream cheese frosting, caramel drizzle, and cracked sea salt." },
-          { name: "Plain Jane Vanilla", description: "Vanilla cake, butter cream frosting, and colored sprinkles." },
-          { name: "Attitude Adjustment", description: "Vanilla cake, milk chocolate frosting, and colored sprinkles." },
-          { name: "Turtle", description: "Chocolate cake, milk chocolate frosting, and chocolate flakes." },
-          { name: "Triple Chocolate", description: "Chocolate cake, milk chocolate frosting, and chocolate sprinkles." },
-          { name: "Chocolate with Butter Cream", description: "Chocolate cake, butter cream frosting, and chocolate sprinkles." },
-          { name: "Chocolate with Cream Cheese", description: "Chocolate cake, cream cheese frosting, and chocolate sprinkles." },
-          { name: "Chocolate Peanut Butter", description: "Chocolate cake with peanut butter frosting." },
+          { name: "Southern Pecan", description: "Butter pecan cake with coconut, cream cheese frosting, and a pecan half.", image: "/photos/Southern Pecan.jpg" },
+          { name: "Red Velvet", description: "Southern chocolate cake, cream cheese frosting, and red velvet crumbles.", image: "/photos/Red Velvet.jpg" },
+          { name: "Wedding Cake", description: "White almond cake, butter cream frosting, and crystal sprinkles.", image: "/photos/Wedding Cake.jpg" },
+          { name: "Vanilla Sea Salt Caramel", description: "Vanilla cake, cream cheese frosting, caramel drizzle, and cracked sea salt.", image: "/photos/Vanilla Sea Salt Caramel.jpg" },
+          { name: "Plain Jane Vanilla", description: "Vanilla cake, butter cream frosting, and colored sprinkles.", image: "/photos/Plain Jane Vanilla.jpg" },
+          { name: "Attitude Adjustment", description: "Vanilla cake, milk chocolate frosting, and colored sprinkles.", image: "/photos/Attitude Adjustment.jpg" },
+          { name: "Turtle", description: "Chocolate cake, milk chocolate frosting, and chocolate flakes.", image: "/photos/Turtle.jpg" },
+          { name: "Triple Chocolate", description: "Chocolate cake, milk chocolate frosting, and chocolate sprinkles.", image: "/photos/Triple Chocolate.jpg" },
+          { name: "Chocolate with Butter Cream", description: "Chocolate cake, butter cream frosting, and chocolate sprinkles.", image: "/photos/Chocolate with Butter Cream.jpg" },
+          { name: "Chocolate with Cream Cheese", description: "Chocolate cake, cream cheese frosting, and chocolate sprinkles.", image: "/photos/Chocolate with Cream Cheese.jpg" },
+          { name: "Chocolate Peanut Butter", description: "Chocolate cake with peanut butter frosting.", image: "/photos/Chocolate Peanut Butter.jpg" },
         ],
       },
       {
         heading: "Flavor of the week",
         note: "On a rotating weekly schedule",
         items: [
-          { name: "Cookies & Cream", description: "Vanilla cake with Oreo crumbles, butter cream frosting, and cookie pieces.", current: true },
-          { name: "Raspberry", description: "Raspberry vanilla swirl cake, cream cheese frosting, and sugar crystals." },
-          { name: "Chocolate Chip", description: "Vanilla and chocolate marbled cake, cream frosting, and chocolate chips." },
-          { name: "Pralines 'n Cream", description: "Vanilla cake with pralines folded in, cream cheese frosting, and a praline piece." },
-          { name: "Banana Caramel", description: "Banana cake, cream cheese frosting, a banana chip, and caramel drizzle." },
-          { name: "Blueberry", description: "Blueberry vanilla swirl cake with cream cheese frosting." },
-          { name: "Coconut", description: "Coconut cake, cream cheese frosting, and coconut flakes." },
-          { name: "Lemon", description: "Lemon cake, lemon butter cream, and yellow sugar crystals." },
-          { name: "Chocolate Chip Cookie Dough", description: "Vanilla cake with cookie dough baked in, milk chocolate frosting, and a cookie piece." },
+          { name: "Lemon", description: "Lemon cake with lemon butter cream and yellow sugar crystals.", image: "/photos/Lemon.jpg" },
+          { name: "Chocolate Chip Cookie Dough", description: "Vanilla cake with baked cookie dough, chocolate frosting, and cookie pieces.", image: "/photos/Chocolate Chip Cookie Dough .jpg" },
+          { name: "Cookies & Cream", description: "Vanilla cake and Oreo crumbles with butter cream frosting and Oreo pieces.", image: "/photos/Cookies & Cream.jpg" },
+          { name: "Raspberry", description: "Raspberry vanilla swirl cake with cream cheese frosting and sugar crystals.", image: "/photos/Raspberry.jpg" },
+          { name: "Chocolate Chip", description: "Vanilla and chocolate marbled cake with cream cheese frosting and chocolate chips.", image: "/photos/Chocolate Chip.jpg" },
+          { name: "Pralines 'n Cream", description: "Vanilla cake with pralines, cream cheese frosting, and praline pieces.", image: "/photos/Pralines 'n Cream.jpg" },
+          { name: "Banana Caramel", description: "Banana cake with cream cheese frosting and a banana chip drizzled with caramel.", image: "/photos/Banana Caramel.jpg" },
+          { name: "Blueberry", description: "Blueberry vanilla swirl cake with cream cheese frosting and a fresh blueberry.", image: "/photos/Blueberry.jpg" },
+          { name: "Coconut", description: "Coconut cake with cream cheese frosting and coconut flakes.", image: "/photos/Coconut.jpg" },
         ],
       },
       {
         heading: "Flavor of the month",
         note: "One for every month",
         items: [
-          { name: "Snickers", description: "January. Chocolate cake, cream cheese frosting, peanuts, and caramel drizzle." },
-          { name: "Petit Gateaux", description: "February. Vanilla cake swirled with cinnamon and pecans, cream cheese frosting, and Mardi Gras sugars." },
-          { name: "Irish Cream", description: "March. Chocolate coffee cake with Baileys Irish Cream frosting." },
-          { name: "Carrot Cake", description: "April. Cinnamon spice cake with carrots, raisins, and walnuts, with cream cheese frosting." },
-          { name: "Blueberry Wedding Cake", description: "May. White almond cake with blueberries folded in, topped with butter cream." },
-          { name: "Key Lime", description: "June. Key lime cake, key lime butter cream, and crushed graham cracker." },
-          { name: "Strawberry", description: "July. Fresh strawberry cake with strawberry cream cheese frosting." },
+          { name: "Snickers", description: "January. Chocolate cake, cream cheese frosting, peanuts, and caramel drizzle.", image: "/photos/Snickers.jpg" },
+          { name: "Petit Gateaux", description: "February. Vanilla cake swirled with cinnamon and pecans, cream cheese frosting, and Mardi Gras sugars.", image: "/photos/Petit Gateaux.jpg" },
+          { name: "Irish Cream", description: "March. Chocolate coffee cake with Baileys Irish Cream frosting.", image: "/photos/Irish Cream.jpg" },
+          { name: "Carrot Cake", description: "April. Cinnamon spice cake with carrots, raisins, and walnuts, with cream cheese frosting.", image: "/photos/Carrot Cake.jpg" },
+          { name: "Blueberry Wedding Cake", description: "May. White almond cake with blueberries folded in, topped with butter cream.", image: "/photos/Blueberry Wedding Cake.jpg" },
+          { name: "Key Lime", description: "June. Key lime cake, key lime butter cream, and crushed graham cracker.", image: "/photos/Key Lime.jpg" },
+          { name: "Strawberry", description: "July. Fresh strawberry cake with strawberry cream cheese frosting.", image: "/photos/Strawberry.jpg" },
           { name: "Caramel Butterscotch", description: "August. Brown sugar cake, caramel frosting, butterscotch drizzle, and a pinch of sea salt." },
-          { name: "Caramel Apple", description: "September. Fresh apple cake, caramel frosting, dusted with cinnamon." },
-          { name: "S'Mores", description: "October. Chocolate cupcake, marshmallow frosting, chocolate sauce, and graham crumbles." },
-          { name: "Pumpkin", description: "November. Pumpkin spice cake, cream cheese frosting, dusted with cinnamon." },
-          { name: "Chocolate Mint", description: "December. Chocolate cake, mint buttercream, and red and green sprinkles." },
+          { name: "Caramel Apple", description: "September. Fresh apple cake, caramel frosting, dusted with cinnamon.", image: "/photos/Caramel Apple.jpg" },
+          { name: "S'Mores", description: "October. Chocolate cupcake, marshmallow frosting, chocolate sauce, and graham crumbles.", image: "/photos/S'Mores.jpg" },
+          { name: "Pumpkin", description: "November. Pumpkin spice cake, cream cheese frosting, dusted with cinnamon.", image: "/photos/Pumpkin.jpg" },
+          { name: "Chocolate Mint", description: "December. Chocolate cake, mint buttercream, and red and green sprinkles.", image: "/photos/Chocolate Mint.jpg" },
         ],
       },
     ],
@@ -85,7 +85,7 @@ export const MENU_CATEGORIES: MenuCategory[] = [
     name: "Cakes",
     intro:
       "Any cupcake flavor we make, scaled up. Six or eight inch, baked fresh to order. Please allow 48 hours and call for details.",
-    image: "/photos/chocolate cake.jpeg",
+    image: "/photos/choc pb cake.jpg",
     imageAlt: "Chocolate peanut butter drip cake on a white cake stand",
     pricingNote: "Custom cakes are made to order in any flavor we offer as a cupcake. Call 318.445.5226 for pricing and details. Please allow 48 hours.",
     groups: [
@@ -165,8 +165,8 @@ export const MENU_CATEGORIES: MenuCategory[] = [
     slug: "paleoketo-treats",
     name: "Paleo & Keto",
     intro: "Big flavor, quietly low carb. Additional paleo options available by special order.",
-    image: "/photos/keto-cheesecake.jpg",
-    imageAlt: "Keto and diabetic-friendly gluten-free cheesecakes with a caramel cupcake",
+    image: "/photos/paleo grouping.jpg",
+    imageAlt: "A grouping of paleo treats at Little Cakes With Big Attitude",
     groups: [
       {
         heading: "Paleo",
@@ -210,3 +210,27 @@ export const MENU_CATEGORIES: MenuCategory[] = [
 ];
 
 export const MENU_SLUGS = MENU_CATEGORIES.map((c) => c.slug);
+
+// Weekly rotation order — update this list to change the sequence.
+// Week 0 is anchored to Monday 2026-06-01 (Lemon). Add or remove flavors here;
+// the modulo keeps the index in bounds automatically.
+export const WEEKLY_ROTATION = [
+  "Lemon",
+  "Chocolate Chip Cookie Dough",
+  "Cookies & Cream",
+  "Raspberry",
+  "Chocolate Chip",
+  "Pralines 'n Cream",
+  "Banana Caramel",
+  "Blueberry",
+  "Coconut",
+] as const;
+
+const ANCHOR_MS = Date.UTC(2026, 5, 1); // Monday 2026-06-01 = index 0 (Lemon)
+const MS_PER_WEEK = 7 * 24 * 60 * 60 * 1000;
+
+export function currentWeeklyFlavor(): string {
+  const w = Math.floor((Date.now() - ANCHOR_MS) / MS_PER_WEEK);
+  const i = ((w % WEEKLY_ROTATION.length) + WEEKLY_ROTATION.length) % WEEKLY_ROTATION.length;
+  return WEEKLY_ROTATION[i];
+}

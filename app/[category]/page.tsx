@@ -6,6 +6,7 @@ import { ArrowLeft } from "@phosphor-icons/react/dist/ssr";
 import { PageHero } from "@/components/PageHero";
 import { Reveal, Magnetic } from "@/components/motion-primitives";
 import { OrderButton } from "@/components/OrderButton";
+import { WeeklyFlavorGroup } from "@/components/WeeklyFlavorGroup";
 import { MENU_CATEGORIES } from "@/lib/menu";
 import { categoryMenuLd } from "@/lib/schema";
 
@@ -102,42 +103,58 @@ export default async function CategoryPage({
                 ) : (
                   <h2 className="sr-only">{cat.name}</h2>
                 )}
-                {(() => {
-                  const hasCurrent = group.items.some((i) => i.current);
-                  return (
-                    <div className="grid gap-x-12 gap-y-7 sm:grid-cols-2">
-                      {group.items.map((item) => (
-                        <div
-                          key={item.name}
-                          className={`transition-opacity duration-300 ${
-                            hasCurrent && !item.current ? "opacity-35" : ""
-                          }`}
-                        >
-                          <div className="flex items-baseline justify-between gap-4">
-                            <h3 className="font-display text-lg font-bold tracking-tight text-cream">
-                              {item.name}
-                              {item.current && (
-                                <span className="ml-2 align-middle rounded-full bg-teal px-2 py-0.5 font-sans text-[10px] font-semibold uppercase tracking-wider text-teal-ink">
-                                  This week
+
+                {group.heading === "Flavor of the week" ? (
+                  <WeeklyFlavorGroup items={group.items} />
+                ) : (
+                  (() => {
+                    const hasCurrent = group.items.some((i) => i.current);
+                    return (
+                      <div className="grid gap-x-12 gap-y-10 sm:grid-cols-2">
+                        {group.items.map((item) => (
+                          <div
+                            key={item.name}
+                            className={`transition-opacity duration-300 ${
+                              hasCurrent && !item.current ? "opacity-35" : ""
+                            }`}
+                          >
+                            {item.image && (
+                              <div className="relative mb-3 aspect-square overflow-hidden rounded-xl">
+                                <Image
+                                  src={item.image}
+                                  alt={item.name}
+                                  fill
+                                  sizes="(min-width: 640px) 40vw, 90vw"
+                                  className="object-cover"
+                                />
+                              </div>
+                            )}
+                            <div className="flex items-baseline justify-between gap-4">
+                              <h3 className="font-display text-lg font-bold tracking-tight text-cream">
+                                {item.name}
+                                {item.current && (
+                                  <span className="ml-2 align-middle rounded-full bg-teal px-2 py-0.5 font-sans text-[10px] font-semibold uppercase tracking-wider text-teal-ink">
+                                    This week
+                                  </span>
+                                )}
+                              </h3>
+                              {item.price && (
+                                <span className="shrink-0 font-mono text-sm text-teal">
+                                  {item.price}
                                 </span>
                               )}
-                            </h3>
-                            {item.price && (
-                              <span className="shrink-0 font-mono text-sm text-teal">
-                                {item.price}
-                              </span>
+                            </div>
+                            {item.description && (
+                              <p className="mt-1.5 max-w-prose text-sm leading-relaxed text-muted">
+                                {item.description}
+                              </p>
                             )}
                           </div>
-                          {item.description && (
-                            <p className="mt-1.5 max-w-prose text-sm leading-relaxed text-muted">
-                              {item.description}
-                            </p>
-                          )}
-                        </div>
-                      ))}
-                    </div>
-                  );
-                })()}
+                        ))}
+                      </div>
+                    );
+                  })()
+                )}
               </div>
             </Reveal>
           ))}
