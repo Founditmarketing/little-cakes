@@ -138,7 +138,7 @@ export const MENU_CATEGORIES: MenuCategory[] = [
       {
         items: [
           { name: "Sweet Pop-Tarts", description: "Apple, Blueberry, Chocolate, King Cake, or Strawberry.", price: "$3.30" },
-          { name: "Savory Pop-Tart", price: "$3.30" },
+          { name: "Savory Pop-Tart", description: "Bacon, Egg, and Cheese or Sausage, Egg, and Cheese.", price: "$3.30" },
           { name: "Muffins", description: "Banana Nut, Blueberry, or Glorious Morning.", price: "$2.75" },
           { name: "Cinnamon Rolls", price: "$3.85" },
           { name: "Blueberry Lemon with Cream Cheese", description: "A blueberry lemon scone with cream cheese.", price: "$3.00" },
@@ -175,9 +175,6 @@ export const MENU_CATEGORIES: MenuCategory[] = [
           { name: "Bars", description: "Roasted almonds, walnuts, pecans, and sunflower seeds with almond butter, raw honey, and dried cranberries.", price: "$3.50" },
           { name: "Cookies", description: "Walnuts, dark chocolate chips, and coconut sugar. Comes two to a pack.", price: "$3.30" },
           { name: "Cookie Sandwich", description: "Two paleo cookies with paleo dark chocolate frosting.", price: "$3.85" },
-          { name: "Cranberry Nut Crunch", description: "Roasted almonds, walnuts, pecans, pepitas, and coconut with raw honey, maple syrup, dried cranberries, and sea salt.", price: "$3.30" },
-          { name: "Pecan Pie Nut Crunch", description: "Pecans, coconut, cinnamon, maple syrup, maple extract, and sea salt.", price: "$3.30" },
-          { name: "Nut Crunch", description: "Roasted almonds, walnuts, pecans, pepitas, and coconut with raw honey, maple syrup, and sea salt.", price: "$3.30" },
         ],
       },
       {

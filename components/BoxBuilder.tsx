@@ -1,52 +1,35 @@
 "use client";
 
 import { useState } from "react";
+import Image from "next/image";
 import { AnimatePresence, motion, useReducedMotion } from "motion/react";
 import { X, Copy, Check, ArrowUpRight, Phone } from "@phosphor-icons/react/dist/ssr";
 import { LOCATIONS } from "@/lib/site";
 
 const BOX_SIZE = 12;
 
-// Curated crowd-pleasers with a representative frosting color for the box.
-const FLAVORS: { name: string; color: string }[] = [
-  { name: "Red Velvet", color: "#c5453b" },
-  { name: "Plain Jane Vanilla", color: "#f0e7d4" },
-  { name: "Triple Chocolate", color: "#5b3a29" },
-  { name: "Strawberry", color: "#e98aab" },
-  { name: "Lemon", color: "#f2cf4b" },
-  { name: "Key Lime", color: "#a9d672" },
-  { name: "Birthday Confetti", color: "#1cbcca" },
-  { name: "Cookies & Cream", color: "#d7cfc0" },
-  { name: "Southern Pecan", color: "#caa069" },
-  { name: "Vanilla Sea Salt Caramel", color: "#cf9446" },
-  { name: "Coconut", color: "#f5f0e6" },
-  { name: "Wedding Cake", color: "#efe6d4" },
-  { name: "Chocolate Peanut Butter", color: "#d6a368" },
-  { name: "Blueberry", color: "#7186d4" },
-  { name: "Pumpkin", color: "#d98a3c" },
-  { name: "Chocolate Mint", color: "#8ed6b0" },
+// Confetti burst is purely decorative, so it uses a fixed brand palette
+// rather than tying to a specific flavor photo.
+const BURST_COLORS = ["#1cbcca", "#f0e7d4", "#cf9446", "#c5453b", "#efe6d4", "#5b3a29"];
+
+// Daily flavors only (lib/menu.ts "Daily flavors" group), matched to the
+// same photos used on the cupcakes menu page.
+const FLAVORS: { name: string; image: string }[] = [
+  { name: "Southern Pecan", image: "/photos/Southern Pecan.jpg" },
+  { name: "Red Velvet", image: "/photos/Red Velvet.jpg" },
+  { name: "Wedding Cake", image: "/photos/Wedding Cake.jpg" },
+  { name: "Vanilla Sea Salt Caramel", image: "/photos/Vanilla Sea Salt Caramel.jpg" },
+  { name: "Plain Jane Vanilla", image: "/photos/Plain Jane Vanilla.jpg" },
+  { name: "Attitude Adjustment", image: "/photos/Attitude Adjustment.jpg" },
+  { name: "Turtle", image: "/photos/Turtle.jpg" },
+  { name: "Triple Chocolate", image: "/photos/Triple Chocolate.jpg" },
+  { name: "Chocolate with Butter Cream", image: "/photos/Chocolate with Butter Cream.jpg" },
+  { name: "Chocolate with Cream Cheese", image: "/photos/Chocolate with Cream Cheese.jpg" },
+  { name: "Chocolate Peanut Butter", image: "/photos/Chocolate Peanut Butter.jpg" },
 ];
 
-const colorOf = (name: string) =>
-  FLAVORS.find((f) => f.name === name)?.color ?? "#f0e7d4";
-
-function MiniCupcake({ color }: { color: string }) {
-  return (
-    <span className="relative flex flex-col items-center" aria-hidden="true">
-      <span
-        className="h-[1.35rem] w-7 rounded-full"
-        style={{
-          background: color,
-          boxShadow: "inset 0 2px 2px rgba(255,255,255,.45)",
-        }}
-      />
-      <span
-        className="-mt-1 h-3.5 w-6 bg-[#3a2a20]"
-        style={{ clipPath: "polygon(0 0, 100% 0, 84% 100%, 16% 100%)" }}
-      />
-    </span>
-  );
-}
+const imageOf = (name: string) =>
+  FLAVORS.find((f) => f.name === name)?.image ?? FLAVORS[0].image;
 
 export function BoxBuilder() {
   const [box, setBox] = useState<string[]>([]);
@@ -114,10 +97,16 @@ export function BoxBuilder() {
                         animate={{ opacity: 1, scale: 1, y: 0 }}
                         exit={reduce ? { opacity: 0 } : { opacity: 0, scale: 0.4 }}
                         transition={{ type: "spring", stiffness: 320, damping: 20 }}
-                        className="group grid size-full place-items-center"
+                        className="group relative size-full overflow-hidden rounded-xl"
                       >
-                        <MiniCupcake color={colorOf(name)} />
-                        <span className="absolute inset-0 grid place-items-center rounded-xl bg-ink/70 opacity-0 transition-opacity group-hover:opacity-100">
+                        <Image
+                          src={imageOf(name)}
+                          alt={name}
+                          fill
+                          sizes="120px"
+                          className="object-cover"
+                        />
+                        <span className="absolute inset-0 grid place-items-center bg-ink/70 opacity-0 transition-opacity group-hover:opacity-100">
                           <X weight="bold" className="size-4 text-cream" />
                         </span>
                       </motion.button>
@@ -138,7 +127,7 @@ export function BoxBuilder() {
                     <motion.span
                       key={i}
                       className="absolute left-1/2 top-1/2 size-1.5 rounded-full"
-                      style={{ background: FLAVORS[i % FLAVORS.length].color }}
+                      style={{ background: BURST_COLORS[i % BURST_COLORS.length] }}
                       initial={{ opacity: 1, x: 0, y: 0, scale: 1 }}
                       animate={{
                         opacity: 0,
@@ -247,13 +236,9 @@ export function BoxBuilder() {
               disabled={full}
               className="flex items-center gap-3 rounded-2xl border border-line bg-ink-2 px-4 py-3 text-left transition-colors hover:border-teal/50 disabled:cursor-not-allowed disabled:opacity-40"
             >
-              <span
-                className="size-5 shrink-0 rounded-full"
-                style={{
-                  background: f.color,
-                  boxShadow: "inset 0 1px 1px rgba(255,255,255,.4)",
-                }}
-              />
+              <span className="relative size-11 shrink-0 overflow-hidden rounded-full">
+                <Image src={f.image} alt={f.name} fill sizes="44px" className="object-cover" />
+              </span>
               <span className="text-[15px] font-medium text-cream">{f.name}</span>
             </button>
           ))}

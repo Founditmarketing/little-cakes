@@ -1,3 +1,4 @@
+import path from "path";
 import type { NextConfig } from "next";
 
 // Static media is versioned by filename whenever it changes (project rule:
@@ -5,6 +6,9 @@ import type { NextConfig } from "next";
 const IMMUTABLE = "public, max-age=31536000, immutable";
 
 const nextConfig: NextConfig = {
+  turbopack: {
+    root: path.join(__dirname),
+  },
   images: {
     // WebP keeps optimization fast in dev and is well-supported in production.
     // (AVIF adds heavy encode cost for marginal gain; enable later if desired.)

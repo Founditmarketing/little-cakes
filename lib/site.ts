@@ -106,9 +106,8 @@ export const CATEGORIES: Category[] = [
     name: "Cakes",
     href: "/cakes",
     blurb: "Whole cakes and slices for the big days.",
-    image: "/videos/cakes-poster.jpg",
-    alt: "Caramel drizzling onto chocolate cakes on a wood board",
-    video: "/videos/cakes.mp4",
+    image: "/photos/choc pb cake.jpg",
+    alt: "Chocolate peanut butter drip cake on a white cake stand",
     position: "object-center",
   },
   {
