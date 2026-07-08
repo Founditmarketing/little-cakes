@@ -4,6 +4,7 @@ import "./globals.css";
 import { Nav } from "@/components/Nav";
 import { Footer } from "@/components/Footer";
 import { MobileOrderBar } from "@/components/MobileOrderBar";
+import Script from 'next/script'
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -104,6 +105,8 @@ new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
 j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
 })(window,document,'script','dataLayer','GTM-MDKSLQ98');` }} />
+            {/* Found It Lead Capture */}
+      <Script src="https://www.founditos.com/embed/lead-capture.js" data-account="2109cd97-10fb-4581-81a6-7cbd7bf41ecb" strategy="afterInteractive" />
       </body>
     </html>
   );
